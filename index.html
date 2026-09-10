@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ondas Digitales | Portal del Podcast</title>
+  <meta name="description" content="Portal multimedia con la curaduría de un episodio de podcast tecnológico, maquetado con HTML5 semántico y CSS fluido tradicional.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ===================== ENCABEZADO ===================== -->
+  <header class="principal">
+    <div class="contenedor">
+      <h1>Ondas Digitales</h1>
+      <p class="subtitulo">Curaduría de contenido con IA generativa &mdash; Desafío Programación Web I</p>
+    </div>
+  </header>
+
+  <!-- ===================== NAVEGACIÓN ===================== -->
+  <nav class="principal" aria-label="Navegación principal">
+    <div class="contenedor">
+      <ul class="clearfix">
+        <li><a href="#video">Episodio</a></li>
+        <li><a href="#resumen">Resumen</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#creditos">Créditos</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ===================== EPISODIO EMBEBIDO ===================== -->
+    <section id="video">
+      <div class="contenedor">
+        <h2>El episodio</h2>
+        <p>
+          Escucha y observa el episodio seleccionado para esta curaduría.
+          El video fue incorporado como fuente primaria en NotebookLM para
+          generar el resumen que encontrarás en la siguiente sección.
+        </p>
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/IwaF7-COu1c"
+            title="Episodio del podcast seleccionado"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== RESUMEN GENERADO CON NOTEBOOKLM ===================== -->
+    <section id="resumen">
+      <div class="contenedor">
+        <h2>Curaduría del contenido</h2>
+        <article class="columnas clearfix">
+
+          <div class="col-principal">
+            <h3>Ejes temáticos</h3>
+            <p>
+              <!-- NOTA PARA EL ESTUDIANTE: reemplazar este texto de plantilla
+                   por los ejes temáticos reales que NotebookLM extrajo del
+                   episodio elegido. -->
+              El episodio recorre tres grandes ejes: el papel de las
+              herramientas de inteligencia artificial en la vida cotidiana,
+              los retos éticos que surgen de su adopción masiva y las
+              oportunidades que abre para la creatividad y el aprendizaje.
+              Cada eje se desarrolla con ejemplos concretos que los
+              invitados comparten a lo largo de la conversación.
+            </p>
+
+            <h3>Resumen ejecutivo</h3>
+            <p>
+              La conversación parte de una pregunta central: ¿cómo cambia
+              nuestra relación con la tecnología cuando la inteligencia
+              artificial deja de ser una herramienta especializada y se
+              vuelve parte del día a día? A partir de ahí, los participantes
+              analizan casos de uso, comparten anécdotas personales y
+              plantean preguntas abiertas sobre el futuro cercano.
+            </p>
+
+            <h3>Puntos clave</h3>
+            <ul>
+              <li>La adopción de nuevas herramientas suele ir por delante de la regulación.</li>
+              <li>La curaduría y verificación de la información sigue siendo una tarea humana.</li>
+              <li>La accesibilidad de estas herramientas democratiza su uso, pero también exige alfabetización digital.</li>
+            </ul>
+          </div>
+
+          <aside class="col-lateral">
+            <h3>Cita destacada</h3>
+            <blockquote>
+              &ldquo;La tecnología no reemplaza el criterio; lo pone a prueba
+              con más frecuencia.&rdquo;
+            </blockquote>
+
+            <h3>Conclusiones</h3>
+            <p>
+              El episodio cierra invitando a la audiencia a experimentar con
+              las herramientas disponibles sin perder de vista el pensamiento
+              crítico como brújula principal.
+            </p>
+          </aside>
+
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== GALERÍA DE IMÁGENES ===================== -->
+    <section id="galeria">
+      <div class="contenedor">
+        <h2>Galería ilustrativa</h2>
+        <div class="galeria">
+
+          <figure>
+            <img src="img/ia-cotidiana.svg" alt="Ilustración de un circuito con nodos conectados representando la IA en la vida cotidiana">
+            <figcaption>IA en la vida cotidiana</figcaption>
+          </figure>
+
+          <figure>
+            <img src="img/microfono-podcast.svg" alt="Ilustración de un micrófono profesional con ondas de audio">
+            <figcaption>El formato podcast</figcaption>
+          </figure>
+
+          <figure>
+            <img src="img/web-accesible.svg" alt="Ilustración de una ventana de navegador con un símbolo de accesibilidad">
+            <figcaption>Un portal accesible</figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== PIE DE PÁGINA ===================== -->
+  <footer class="principal" id="creditos">
+    <div class="contenedor">
+      <p>Desafío Práctico: Programación Web I &mdash; Portal Web Multimedia con Maquetación Fluida Tradicional.</p>
+      <p><small>Curaduría asistida con NotebookLM &middot; Maquetado con HTML5 semántico y CSS fluido &middot; Sin Flexbox, Grid, Media Queries ni JavaScript.</small></p>
+    </div>
+  </footer>
+
+</body>
+</html>
