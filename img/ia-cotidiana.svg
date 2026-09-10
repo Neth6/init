@@ -1,0 +1,30 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t1 d1">
+  <title id="t1">Inteligencia artificial aplicada a la vida cotidiana</title>
+  <desc id="d1">Ilustración de un chip de circuito estilizado con nodos conectados</desc>
+  <rect width="400" height="300" fill="#eef3f2"/>
+  <circle cx="200" cy="150" r="70" fill="#123c4a"/>
+  <g stroke="#2f8f84" stroke-width="4" fill="none">
+    <line x1="200" y1="80" x2="200" y2="40"/>
+    <line x1="200" y1="220" x2="200" y2="260"/>
+    <line x1="130" y1="150" x2="90" y2="150"/>
+    <line x1="270" y1="150" x2="310" y2="150"/>
+    <line x1="150" y1="100" x2="120" y2="70"/>
+    <line x1="250" y1="200" x2="280" y2="230"/>
+    <line x1="250" y1="100" x2="280" y2="70"/>
+    <line x1="150" y1="200" x2="120" y2="230"/>
+  </g>
+  <g fill="#e08e45">
+    <circle cx="200" cy="40" r="8"/>
+    <circle cx="200" cy="260" r="8"/>
+    <circle cx="90" cy="150" r="8"/>
+    <circle cx="310" cy="150" r="8"/>
+    <circle cx="120" cy="70" r="8"/>
+    <circle cx="280" cy="230" r="8"/>
+    <circle cx="280" cy="70" r="8"/>
+    <circle cx="120" cy="230" r="8"/>
+  </g>
+  <rect x="170" y="120" width="60" height="60" rx="10" fill="#f7f5f0"/>
+  <circle cx="190" cy="145" r="6" fill="#123c4a"/>
+  <circle cx="210" cy="145" r="6" fill="#123c4a"/>
+  <path d="M185 165 Q200 175 215 165" stroke="#123c4a" stroke-width="4" fill="none" stroke-linecap="round"/>
+</svg>
