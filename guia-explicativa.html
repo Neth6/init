@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía explicativa — Ondas Digitales</title>
+  <style>
+    body { font-family: "Segoe UI", Verdana, Arial, sans-serif; color:#232323; background:#f7f5f0; line-height:1.6; margin:0; }
+    .contenedor { width:88%; max-width:800px; margin:0 auto; padding:3% 0; }
+    h1 { color:#123c4a; }
+    h2 { color:#123c4a; border-bottom:2px solid #2f8f84; padding-bottom:0.2em; }
+    code { background:#eef3f2; padding:0.1em 0.4em; border-radius:4px; }
+    table { width:100%; border-collapse:collapse; margin:1em 0; }
+    th, td { border:1px solid #cfcfc7; padding:0.5em; text-align:left; }
+    th { background:#123c4a; color:#f7f5f0; }
+  </style>
+</head>
+<body>
+<div class="contenedor">
+
+  <h1>Guía explicativa</h1>
+  <p>Portal: <strong>Ondas Digitales</strong> — Desafío Práctico: Programación Web I</p>
+
+  <h2>1. Justificación de las etiquetas semánticas</h2>
+  <p>
+    La página evita el uso de <code>&lt;div&gt;</code> genéricos siempre que existe
+    una etiqueta semántica equivalente, con el objetivo de que la estructura del
+    documento sea comprensible tanto para el navegador como para tecnologías de
+    asistencia y motores de búsqueda.
+  </p>
+  <table>
+    <tr><th>Etiqueta</th><th>Uso en el proyecto</th><th>Justificación</th></tr>
+    <tr><td><code>&lt;header&gt;</code></td><td>Título del portal y subtítulo</td><td>Agrupa el contenido introductorio de la página, distinto del contenido principal.</td></tr>
+    <tr><td><code>&lt;nav&gt;</code></td><td>Menú de anclas a las secciones</td><td>Marca explícitamente el bloque de navegación, permitiendo a lectores de pantalla saltar directamente a él.</td></tr>
+    <tr><td><code>&lt;main&gt;</code></td><td>Contenedor único del contenido central</td><td>Señala el contenido principal y único de la página (solo puede existir un <code>&lt;main&gt;</code> por documento).</td></tr>
+    <tr><td><code>&lt;section&gt;</code></td><td>Episodio, Resumen, Galería</td><td>Cada una agrupa un bloque temático independiente con su propio encabezado.</td></tr>
+    <tr><td><code>&lt;article&gt;</code></td><td>Bloque de curaduría del resumen</td><td>Contenido que tiene sentido de forma independiente (podría republicarse por sí solo).</td></tr>
+    <tr><td><code>&lt;aside&gt;</code></td><td>Cita y conclusiones</td><td>Información relacionada pero secundaria respecto al contenido principal de la columna.</td></tr>
+    <tr><td><code>&lt;figure&gt;</code> / <code>&lt;figcaption&gt;</code></td><td>Galería de imágenes</td><td>Vincula cada imagen con su descripción de forma semánticamente explícita.</td></tr>
+    <tr><td><code>&lt;footer&gt;</code></td><td>Créditos del proyecto</td><td>Agrupa metadatos de cierre del documento.</td></tr>
+  </table>
+
+  <h2>2. Estrategia matemática/CSS para la fluidez sin Media Queries ni Flexbox/Grid</h2>
+
+  <h3>2.1 Contenedor fluido</h3>
+  <p>
+    En lugar de un ancho fijo en píxeles, el contenedor principal usa
+    <code>width: 92%</code> con <code>margin: 0 auto</code>. Esto hace que el
+    ancho del contenido sea siempre una fracción proporcional del ancho de la
+    ventana, sin necesidad de puntos de quiebre.
+  </p>
+
+  <h3>2.2 Video responsivo (relación de aspecto por porcentaje)</h3>
+  <p>
+    El embebido de YouTube se envuelve en un contenedor con posición relativa
+    y <code>padding-bottom: 56.25%</code>. Ese porcentaje corresponde a la
+    proporción 9&nbsp;/&nbsp;16 (0.5625) de una relación de aspecto 16:9. Como
+    el <code>padding</code> en porcentaje siempre se calcula sobre el ancho
+    del elemento, la altura del contenedor queda matemáticamente ligada a su
+    ancho: si el ancho se reduce a la mitad, la altura también lo hace,
+    manteniendo la proporción sin ninguna regla <code>@media</code>.
+  </p>
+
+  <h3>2.3 Menú de navegación con <code>inline-block</code></h3>
+  <p>
+    Los elementos <code>&lt;li&gt;</code> del menú usan
+    <code>display: inline-block</code> con <code>width: 24%</code> cada uno.
+    A diferencia de <code>float</code>, <code>inline-block</code> respeta el
+    flujo del texto y permite que, si el espacio horizontal disponible fuera
+    insuficiente, los elementos se acomoden de forma natural en el flujo en
+    línea, sin necesidad de flexbox ni de puntos de quiebre.
+  </p>
+
+  <h3>2.4 Columnas del resumen con <code>float</code> y <code>clearfix</code></h3>
+  <p>
+    La columna principal (66%) y la columna lateral (34%) suman
+    aproximadamente el 100% del contenedor y usan <code>float: left</code>.
+    Como los elementos flotados se sacan del flujo normal y no aportan altura
+    a su padre, se aplica la clase <code>.clearfix</code>
+    (<code>content: ""; display: table; clear: both;</code>) al contenedor
+    <code>&lt;article&gt;</code> para forzarlo a contener la altura de sus
+    hijos flotados.
+  </p>
+
+  <h3>2.5 Galería con <code>inline-block</code> proporcional</h3>
+  <p>
+    Cada <code>&lt;figure&gt;</code> mide <code>width: 30%</code> con
+    <code>margin: 1.5%</code>, de modo que tres figuras más sus márgenes
+    ocupan el 100% del ancho disponible (30% × 3 + 1.5% × 6 = 99%). Al ser
+    unidades porcentuales, las imágenes se reducen o amplían de forma
+    continua y proporcional según el ancho de la pantalla, y
+    <code>max-width: 100%</code> en las imágenes evita que desborden su
+    figura contenedora.
+  </p>
+
+  <h3>2.6 Resumen de la estrategia</h3>
+  <p>
+    En conjunto, la fluidez se logra combinando cuatro recursos puramente
+    porcentuales: anchos relativos (%) para contenedores y columnas,
+    <code>inline-block</code> para elementos que deben acomodarse en línea,
+    <code>float</code> con <code>clearfix</code> para maquetaciones de
+    múltiples columnas, y <code>max-width: 100%</code> para que ningún
+    elemento multimedia desborde su contenedor. Ninguna de estas técnicas
+    depende del ancho de la ventana en píxeles absolutos ni de un punto de
+    quiebre definido con <code>@media</code>.
+  </p>
+
+  <h2>3. Paleta de colores y contraste</h2>
+  <p>
+    La paleta usa <code>#123c4a</code> (azul petróleo) como color dominante
+    para cabecera, pie y títulos; <code>#2f8f84</code> (verde azulado) como
+    acento de navegación y enlaces; y <code>#f7f5f0</code> como fondo cálido
+    de alto brillo. El contraste entre <code>#123c4a</code> y
+    <code>#f7f5f0</code> es de aproximadamente 11:1, muy por encima del
+    mínimo de 4.5:1 exigido por WCAG 2.1 nivel AA para texto normal.
+  </p>
+
+</div>
+</body>
+</html>
